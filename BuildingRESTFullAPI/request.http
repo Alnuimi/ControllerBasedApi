@@ -1,0 +1,65 @@
+@baseUrl = https://localhost:7120
+@productId = 2779ee47-10b0-4bd7-8342-404006aa1392
+###
+Options {{baseUrl}}/api/products
+
+###
+HEAD  {{baseUrl}}/api/products/{{productId}}
+
+###
+GET  {{baseUrl}}/api/products/{{productId}}
+
+
+###
+GET  {{baseUrl}}/api/products?page= 4&pageSize= 4
+
+###
+POST  {{baseUrl}}/api/products
+Content-Type: application/json
+
+{
+  "name": "New Product",
+  "price": 19.99
+}
+
+###
+PUT {{baseUrl}}/api/products/{{productId}}
+Content-Type: application/json
+
+{
+  "name": "Updated Product Name",
+  "price": 29.99
+}
+
+###
+PATCH {{baseUrl}}/api/products/{{productId}}
+Content-Type: application/json-patch+json
+
+[
+  { "op": "replace", "path": "/price", "value": 24.99 }
+]
+
+
+###
+DELETE   {{baseUrl}}/api/products/{{productId}}
+
+###
+POST  {{baseUrl}}/api/products/process
+
+@jobId = 73b32723-526a-40cf-9af8-6e5b7efda171
+
+###
+GET  {{baseUrl}}/api/products/status/{{jobId}}
+
+
+###
+GET  {{baseUrl}}/api/products/csv
+
+###
+GET  {{baseUrl}}/api/products/physical-csv-file
+
+###
+GET  {{baseUrl}}/api/products/products-legacy
+
+###
+GET  {{baseUrl}}/api/products/legacy-products
