@@ -39,8 +39,15 @@ public class ProductRepository
 
     public List<Product> GetProductsPage(int page = 1, int pageSize = 10)
     {
-        var products = _products.Skip((page - 1) * pageSize)
+        int offset = (page - 1) * pageSize;
+        var products = _products.Skip(offset)
                                 .Take(pageSize)
+                                .Select(p => new Product
+                                {
+                                    Id = p.Id,
+                                    Name = p.Name,
+                                    Price = p.Price
+                                })
                                 .ToList();
 
         return products;
