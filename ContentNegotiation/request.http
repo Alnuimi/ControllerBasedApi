@@ -1,0 +1,17 @@
+@baseUrl = https://localhost:7118
+@productId = abcdef12-3456-7890-abcd-ef1234567890
+
+###
+GET  {{baseUrl}}/api/products/{{productId}}
+Accept: application/xml
+
+
+
+###
+GET  {{baseUrl}}/api/products
+Accept: application/json
+
+
+###
+GET  {{baseUrl}}/api/products/products-as-table
+# Accept: text/primitives-table
